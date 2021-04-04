@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PhpQuizComponent } from './php-quiz/php-quiz.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VideoQuizComponent } from './video-quiz/video-quiz.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhpQuizComponent,
+    VideoQuizComponent,
   ],
   imports: [
     BrowserModule,

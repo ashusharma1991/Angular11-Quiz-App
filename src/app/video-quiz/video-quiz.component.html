@@ -1,0 +1,72 @@
+<div class="fluid-container">
+    <div class="row">
+        <div class="col-sm-12" *ngIf="startbutton">
+            <div class="card text-center">
+                <div class="card-header">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <button class="btn btn-primary" #clickfull (click)="fullscreen()">Full Screen</button>
+                </div>
+                <div class="card-footer text-muted">
+                    2 days ago
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-sm-12" *ngIf="videodiv">
+        <div class="contentee">
+    
+    <div class="question ml-sm-5 pl-sm-5 pt-2" *ngIf="data.length > 0 && num < data.length; else elseBlock">
+        
+        
+
+        <div class="video">
+            <video  muted autoplay (click)="toggleVideo()" #videoPlayer id="myVideo">
+                <source src="{{data[num].videoLink}}" type="video/mp4" />
+                Browser not supported
+            </video>
+        </div>
+
+        <div class="content">
+            <div class="row">
+            
+               
+                    <div class="col-sm-6" *ngFor="let gender of data[num].options">
+                      <a (click)="ResponceSubmit(gender.nxtVidId)"><img src="{{gender.optImage}}" class="animate__animated animate__zoomIn animate__delay-3s" width="200px"></a>
+                    </div>
+                    
+                </div>
+        
+        
+        
+
+
+        
+        
+        </div>
+
+        </div>
+
+        <ng-template #elseBlock>
+           
+         
+        <video muted autoplay #videoPlayer id="myVideo">
+            <source src="{{data.videoLink}}" type="video/mp4" />
+            Browser not supported
+        </video>
+
+        <div class="content">
+            <div *ngFor="let opt of data.options">
+            <a (click)="ResponceSubmit(opt.nxtVidId)">next {{opt.optContent}}</a>
+            </div>
+        </div>
+            
+        </ng-template>
+    
+    </div>
+    </div>
+    </div>
+</div>

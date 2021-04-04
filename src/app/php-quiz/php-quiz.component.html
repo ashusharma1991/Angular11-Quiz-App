@@ -2,6 +2,12 @@
     <div class="mainclass" >
     <div class="question ml-sm-5 pl-sm-5 pt-2" *ngIf="questions.length > 0 && num < questions.length; else elseBlock">
         <h5>Current Scores: {{scroes}}</h5>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="10"
+                aria-valuemin="30" aria-valuemax="100" [style.width]="width+'%'"></div>
+                
+        </div>
+        <h5>progess: {{qnProgress + 1}}</h5>
         <div class="py-2 h5" [innerHtml]="questions[num].question"><b>Q-{{num + 1}}</b></div>
         <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options"> 
             <div *ngFor ="let ans of questions[num].incorrect_answers">
@@ -10,6 +16,7 @@
                 <span class="checkmark"></span> 
             </label> 
             </div>
+            <div class="ml-auto mr-sm-5"> <button (click)="start()" class="btn btn-success">Restart Quiz</button> </div>
         </div>
     </div>
     <ng-template #elseBlock>
